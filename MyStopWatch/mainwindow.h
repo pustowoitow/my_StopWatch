@@ -59,6 +59,10 @@ protected:
 private slots:
    void on_SaveButton_clicked();
 
+   void on_action_triggered();
+
+   void on_actionAbout_triggered();
+
 private:
     Ui::MainWindow *ui;
     bool mRunning;

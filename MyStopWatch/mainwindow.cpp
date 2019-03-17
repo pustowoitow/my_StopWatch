@@ -71,3 +71,13 @@ void MainWindow::on_SaveButton_clicked()
             QMessageBox::information(this, "Success", "Успешно!");
     }
 }
+
+void MainWindow::on_action_triggered()
+{
+    close();
+}
+
+void MainWindow::on_actionAbout_triggered()
+{
+    QMessageBox::information(this, "About", "Автор: Пустовойтов Александр");
+}
