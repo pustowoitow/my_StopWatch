@@ -18,6 +18,7 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
+#include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
@@ -31,6 +32,8 @@ QT_BEGIN_NAMESPACE
 class Ui_MainWindow
 {
 public:
+    QAction *action;
+    QAction *actionAbout;
     QWidget *centralWidget;
     QWidget *layoutWidget;
     QVBoxLayout *verticalLayout_2;
@@ -46,7 +49,13 @@ public:
     QHBoxLayout *horizontalLayout;
     QLineEdit *FilePath;
     QToolButton *SetFileButton;
+    QWidget *widget;
+    QVBoxLayout *verticalLayout_4;
+    QLabel *label_4;
+    QLineEdit *lineComment;
     QMenuBar *menuBar;
+    QMenu *menuFile;
+    QMenu *menuHelp;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
 
@@ -55,6 +64,10 @@ public:
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
         MainWindow->resize(283, 462);
+        action = new QAction(MainWindow);
+        action->setObjectName(QStringLiteral("action"));
+        actionAbout = new QAction(MainWindow);
+        actionAbout->setObjectName(QStringLiteral("actionAbout"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         layoutWidget = new QWidget(centralWidget);
@@ -148,10 +161,33 @@ public:
 
         verticalLayout_3->addLayout(horizontalLayout);
 
+        widget = new QWidget(centralWidget);
+        widget->setObjectName(QStringLiteral("widget"));
+        widget->setGeometry(QRect(20, 270, 230, 48));
+        verticalLayout_4 = new QVBoxLayout(widget);
+        verticalLayout_4->setSpacing(6);
+        verticalLayout_4->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
+        verticalLayout_4->setContentsMargins(0, 0, 0, 0);
+        label_4 = new QLabel(widget);
+        label_4->setObjectName(QStringLiteral("label_4"));
+        label_4->setFont(font3);
+
+        verticalLayout_4->addWidget(label_4);
+
+        lineComment = new QLineEdit(widget);
+        lineComment->setObjectName(QStringLiteral("lineComment"));
+
+        verticalLayout_4->addWidget(lineComment);
+
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
         menuBar->setGeometry(QRect(0, 0, 283, 26));
+        menuFile = new QMenu(menuBar);
+        menuFile->setObjectName(QStringLiteral("menuFile"));
+        menuHelp = new QMenu(menuBar);
+        menuHelp->setObjectName(QStringLiteral("menuHelp"));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -159,6 +195,11 @@ public:
         statusBar = new QStatusBar(MainWindow);
         statusBar->setObjectName(QStringLiteral("statusBar"));
         MainWindow->setStatusBar(statusBar);
+
+        menuBar->addAction(menuFile->menuAction());
+        menuBar->addAction(menuHelp->menuAction());
+        menuFile->addAction(action);
+        menuHelp->addAction(actionAbout);
 
         retranslateUi(MainWindow);
 
@@ -168,6 +209,8 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
+        action->setText(QApplication::translate("MainWindow", "\320\227\320\260\320\272\321\200\321\213\321\202\321\214", 0));
+        actionAbout->setText(QApplication::translate("MainWindow", "About", 0));
         label_2->setText(QApplication::translate("MainWindow", "\320\241\320\265\320\272\321\203\320\275\320\264\320\276\320\274\320\265\321\200", 0));
         MainLabel->setText(QApplication::translate("MainWindow", "00:00:000", 0));
         StartStopButton->setText(QApplication::translate("MainWindow", "\320\241\321\202\320\260\321\200\321\202", 0));
@@ -175,6 +218,9 @@ public:
         SaveButton->setText(QApplication::translate("MainWindow", "\320\241\320\276\321\205\321\200\320\260\320\275\320\270\321\202\321\214 \321\200\320\265\320\267\321\203\320\273\321\214\321\202\320\260\321\202", 0));
         label_3->setText(QApplication::translate("MainWindow", "\320\222\321\213\320\261\320\265\321\200\320\270\321\202\320\265 \321\204\320\260\320\271\320\273 \320\264\320\273\321\217 \321\201\320\276\321\205\321\200\320\260\320\275\320\265\320\275\320\270\321\217:", 0));
         SetFileButton->setText(QApplication::translate("MainWindow", "...", 0));
+        label_4->setText(QApplication::translate("MainWindow", "\320\232\320\276\320\274\320\265\320\275\321\202\320\260\321\200\320\270\320\271 \320\272 \321\200\320\265\320\267\321\203\320\273\321\214\321\202\320\260\321\202\321\203:", 0));
+        menuFile->setTitle(QApplication::translate("MainWindow", "File", 0));
+        menuHelp->setTitle(QApplication::translate("MainWindow", "Help", 0));
     } // retranslateUi
 
 };

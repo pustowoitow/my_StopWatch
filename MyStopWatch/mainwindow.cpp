@@ -61,7 +61,7 @@ void MainWindow::on_SaveButton_clicked()
                 return;
         }
         QTextStream stream(&mFile);
-        stream<<ui->MainLabel->text()<<"\n";
+        stream<<ui->lineComment->text()<<ui->MainLabel->text()<<"\n";
         mFile.close();
         if (stream.status() != QTextStream::Ok)
             {
