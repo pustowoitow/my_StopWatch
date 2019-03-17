@@ -4,6 +4,12 @@
 
 int main(int argc, char *argv[])
 {
+   // Q_INIT_RESOURCE(resources);
+
+   /*     QStringList paths = QCoreApplication::libraryPaths();
+        paths.append(".");
+        paths.append("imageformats");
+        paths.append("platforms");*/
     QTextCodec *codec = QTextCodec::codecForName("CP1251");
     QTextCodec::setCodecForLocale(codec);
 
@@ -11,6 +17,5 @@ int main(int argc, char *argv[])
     MainWindow w;
     w.show();
 
-   // app.connect( &app, SIGNAL( lastWindowClosed() ), &app, SLOT ( quit() ) );
     return a.exec();
 }
